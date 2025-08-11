@@ -3,7 +3,7 @@
 
 ## epub2m4b
 
-### A Ebook to audiobook converter using chatterboxtts
+### A local Ebook to audiobook converter using chatterbox-tts
 
 ![](https://img.shields.io/badge/docker-2496ED.svg?style=for-the-badge&logoColor=white&logo=docker)
 ![](https://img.shields.io/badge/htmx-3366CC.svg?style=for-the-badge&logoColor=white&logo=htmx)
