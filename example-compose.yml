@@ -1,0 +1,18 @@
+services:
+  epub2m4b: 
+    container_name: epub2m4b
+    image: "epub2m4b"
+    build: .
+    ports:
+      - "5000:5000"  
+    runtime: nvidia
+    volumes:
+      - .:/app
+    restart: unless-stopped
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all  # Equivalent to --gpus all (reserves all GPUs)
+              capabilities: [gpu]

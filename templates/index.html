@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EPUB2M4B</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🗣️</text></svg>">
+    <!-- Include HTMX via CDN -->
+    <script src="https://unpkg.com/htmx.org@2.0.6"></script>
+    <link rel="stylesheet" type="text/css" href="/assets/style.css">
+</head>
+<body>
+<div class="container">
+  <h1>🗣️📖 EPUB 2 M4B 🗣️📖</h1>
+  <h3 style="padding-top: 10px;   "> Tired of having to pay for a book 3 times? Physical, digital and audio!</h3>
+  <h3 style="padding-bottom: 10px;"> Fear not! We are here for YOU</h3>
+  <p class="subtitle"> Add your *LEGAL* epub files and get out an audiobook</p> 
+  <p class="subtitle" margin-bottom: 30px > We will hold your hand through the process dw dw.</p>
+
+      <form id="upload-form" hx-post="/upload" hx-encoding="multipart/form-data" hx-target="#result" hx-swap="innerHTML">
+        <input type="file" name="file" id="fileInput" class="file-input" accept=".epub">
+        <label for="fileInput" class="file-label">Select EPUB File</label>
+        <div class="status" id="status"></div>
+        <button class="btn" id="uploadBtn" type="submit">Upload</button>
+      </form>
+      <div id="result"></div>
+
+      <div id="loading" class="htmx-indicator">
+          <div class="spinner"></div> Generating Audiobook... (this may take a couple of minutes)
+      </div>
+</div>
+    <script>
+        const fileInput = document.getElementById('fileInput');
+        const status = document.getElementById('status');
+        let selectedFile = null;
+        
+        fileInput.addEventListener('change', (e) => {
+            if(e.target.files.length) {
+                handleFile(e.target.files[0]);
+            }
+        });
+        
+        function handleFile(file) {
+            if(file && file.name.toLowerCase().endsWith('.epub')) {
+                selectedFile = file;
+                status.innerHTML = `Selected: <strong>${file.name}</strong> (${formatFileSize(file.size)})`;
+                uploadBtn.style.display = 'block';
+            } else {
+                status.innerHTML = '<span style="color:#e74c3c">Please select a valid EPUB file</span>';
+                selectedFile = null;
+                uploadBtn.style.display = 'none';
+            }
+        }
+        // Upload function
+        function formatFileSize(bytes) {
+            if(bytes < 1024) return bytes + ' bytes';
+            else if(bytes < 1048576) return (bytes / 1024).toFixed(1) + ' KB';
+            else return (bytes / 1048576).toFixed(1) + ' MB';
+        }
+
+        function toggleRenameFields() {
+            var renameFields = document.getElementsByClassName('input-chapter');
+            var checkbox = document.getElementById('toggle-rename');
+            for (var i = 0; i < renameFields.length; i++) {
+                if (checkbox.checked) {
+                    renameFields[i].style.visibility = 'visible';
+                } else {
+                    renameFields[i].style.visibility = 'hidden';
+                }
+            }
+        }
+    </script>
+
+</body>
