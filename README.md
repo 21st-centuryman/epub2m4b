@@ -3,7 +3,7 @@
 
 ## epub2m4b
 
-### A local Ebook to audiobook converter using chatterbox-tts
+### A local Ebook to Audiobook converter using chatterbox-tts
 
 ![](https://img.shields.io/badge/docker-2496ED.svg?style=for-the-badge&logoColor=white&logo=docker)
 ![](https://img.shields.io/badge/htmx-3366CC.svg?style=for-the-badge&logoColor=white&logo=htmx)
@@ -14,7 +14,7 @@
 
 This is a small hackathon project to convert epub files to m4b (audiobook) files using [chatterbox](https://github.com/resemble-ai/chatterbox). It requires a hefty GPU for some longer paragraphs (lots of ram), if this is an issue I recommend using the cpu as the back end.
 
-the entire project is a website written in (htmx)[https://htmx.org]. To run and host it simply run:
+the entire project is a website written in [htmx](https://htmx.org). To run and host it simply run:
 ```bash
 python3 -m pip install -r requirements.txt
 pyhton3 app.py
