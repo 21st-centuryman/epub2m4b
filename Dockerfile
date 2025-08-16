@@ -4,6 +4,7 @@ FROM python:3.11-slim
 WORKDIR /app
 
 COPY app.py .
+COPY wsgi.py .
 COPY prompt.wav .
 COPY assets/style.css assets/
 COPY templates/index.html templates/
@@ -17,4 +18,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 EXPOSE 5000
 
 # Run the app
-CMD ["python3", "app.py"]
+CMD ["gunicorn", "--workers 3", "--bind 0.0.0.0:5001", "wsgi:app"]
