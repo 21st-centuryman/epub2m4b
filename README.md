@@ -7,7 +7,7 @@
 
 ![](https://img.shields.io/badge/docker-2496ED.svg?style=for-the-badge&logoColor=white&logo=docker)
 ![](https://img.shields.io/badge/htmx-3366CC.svg?style=for-the-badge&logoColor=white&logo=htmx)
-![](https://img.shields.io/badge/pytoch-EE4C2C.svg?style=for-the-badge&logoColor=white&logo=pytorch)
+![](https://img.shields.io/badge/ffmpeg-007808.svg?style=for-the-badge&logoColor=white&logo=ffmpeg)
 </div>
 
 ## ⇁  Welcome
